@@ -6,7 +6,7 @@
 		<div class="item">
 			<img class="ui centered rounded image" src="<%= blog.image %>">
 			<div class="content">
-				<br><span><%= blog.created %></span><br><br>
+				<br><span><%= blog.created.toDateString() %></span><br><br>
 			</div>
 			<div class="description">
 				<p><%- blog.body %></p>
