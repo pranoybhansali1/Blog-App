@@ -4,6 +4,7 @@
 
 .container.main{
 	margin-top: 7em;
+	margin-bottom: 5em;
 }
 
 .fa {
@@ -34,4 +35,17 @@
 .fa-pinterest {
   background: #cb2027;
   color: white;
+}
+
+body {
+  display: table;
+  width: 100%; 
+}
+
+footer {
+   display: table-row;
+   height: 50px;
+   margin-top: 25px;
+   background-color: #161616; 
+   color: white;
 }
