@@ -7,7 +7,12 @@ var	bodyParser = require('body-parser'),
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(expressSanitizer());
-mongoose.connect("mongodb://localhost:27017/BlogApp_Database", {useNewUrlParser: true});
+mongoose.connect("mongodb://localhost:27017/BlogApp_Database", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => console.log("Connected to DB!"))
+  .catch((error) => console.log(error.message));
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(methodOverride("_method"));
@@ -16,7 +21,7 @@ var blogSchema = new mongoose.Schema({
 	title: String,
 	image: String,
 	body: String,
-	created: {type: String, default: new Date()}
+	created: {type: Date, default: Date.now}
 });
 
 var Blog = mongoose.model("Blog", blogSchema);
